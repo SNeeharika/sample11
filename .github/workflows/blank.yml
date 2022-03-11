@@ -34,9 +34,10 @@ jobs:
  
       - name: Step that prints name of pull request's base branch
         run: |
-          echo "Pull request's base branch is: ${BASE_BRANCH}"
-        env:
-          BASE_BRANCH: ${{ steps.branch-name.outputs.current_branch }}
+          echo "Pull request's base branch is: ${{github.base_ref}}"
+          echo "Pull request's base branch is: ${{github.head_ref}}"
+        #env:
+        #  BASE_BRANCH: ${{ steps.branch-name.outputs.current_branch }}
         #if: github.event_name == 'pull_request' github.base_ref
  
 
